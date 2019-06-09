@@ -32,6 +32,10 @@ function getStyles(stylesheets) {
 }
 
 function hasAcceptableProtocol(src) {
+  if (src.startsWith('data:image/png;base64')) {
+    return src;
+  }
+
   const acceptableProtocols = ['http:', 'https:'].join('|');
 
   const theUrl = url.parse(src);
